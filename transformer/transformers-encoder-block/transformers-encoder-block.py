@@ -42,7 +42,7 @@ def multi_head_attention(Q,K,V, W_q, W_k, W_v, W_o, num_heads):
     
     head_i = softmax((Q_ @ K_) / np.sqrt(d_k), axis = -1) @ V_
     head_i = np.transpose(head_i, axes = [0, 2, 1, 3])
-    head_i = head_i.reshape(batch_size, seq_len_v, d_model)
+    head_i = head_i.reshape(batch_size, seq_len_q, d_model)
 
     attn_result = head_i @ W_o
     return attn_result
