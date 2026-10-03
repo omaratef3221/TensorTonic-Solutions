@@ -19,8 +19,8 @@ def layer_norm(x: np.ndarray, gamma: np.ndarray, beta: np.ndarray) -> np.ndarray
     return result
 
 def multi_head_attention(Q,K,V, W_q, W_k, W_v, W_o, num_heads):
-        ### MHA
-    batch_size, seq_len, d_model = Q.shape[0], Q.shape[1], Q.shape[2]
+    ### MHA
+    batch_size, seq_len, d_model = K.shape[0], K.shape[1], K.shape[2]
     d_k = d_model // num_heads
     
     Q_ = Q @ W_q # ---> (Batch Size, seq_len, d_model)
